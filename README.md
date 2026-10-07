@@ -100,6 +100,13 @@ nexus-commerce-lakehouse/
 │   └── utils/
 │       ├── config.py                  # Gestion centralizada de variables de entorno
 │       └── s3_minio.py                # Wrapper para operaciones en MinIO S3
+├── docs/                              # Documentacion tecnica detallada
+│   ├── 01_architecture_overview.md    # Topologia, justificacion y flujo global
+│   ├── 02_bronze_layer.md             # Ingestion de datos crudos (Kaggle API)
+│   ├── 03_silver_layer.md             # Limpieza, casteo y conversion a Parquet
+│   ├── 04_gold_layer.md               # Modelado con dbt Core y Data Marts
+│   ├── 05_powerbi_and_mcp_integration.md # Consumo en Power BI y asistente IA MCP
+│   └── 06_operations_and_deployment.md# Guia de operacion de contenedores Docker
 ├── docker-compose.yml                 # Definicion de servicios: Airflow, Postgres y MinIO
 ├── gold_views.sql                     # Script SQL para generacion de vistas en DuckDB
 ├── requirements.txt                   # Librerias de Python requeridas
