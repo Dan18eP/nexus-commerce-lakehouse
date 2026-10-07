@@ -1,0 +1,16 @@
+medallion_duckdb:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '/opt/airflow/data/warehouse.duckdb'
+      extensions:
+        - httpfs
+        - parquet
+      settings:
+        s3_region: 'us-east-1'
+        s3_access_key_id: "{{ env_var('MINIO_ACCESS_KEY', 'minioadmin') }}"
+        s3_secret_access_key: "{{ env_var('MINIO_SECRET_KEY', 'minioadmin') }}"
+        s3_endpoint: "{{ env_var('MINIO_ENDPOINT', 'minio:9000') }}"
+        s3_use_ssl: false
+        s3_url_style: 'path'

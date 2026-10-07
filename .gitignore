@@ -1,0 +1,37 @@
+# Environment & Secrets
+.env
+*.env
+kaggle.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Airflow
+logs/
+plugins/
+
+# DuckDB & Local Data
+*.duckdb
+*.duckdb.wal
+data/
+*.parquet
+*.csv
+target/
+dbt_packages/
+
+# Docker volumes
+postgres-db-volume/
+minio-data/
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

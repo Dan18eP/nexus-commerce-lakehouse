@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: players_clean
+    description: "Tabla silver limpia y filtrada de jugadores"
+    columns:
+      - name: player_id
+        tests:
+          - not_null
+      - name: age
+        tests:
+          - not_null
+      - name: market_value_in_eur
+        tests:
+          - not_null
+
+  - name: players_daily_stats
+    description: "Métricas agregadas por país para análisis de BI"
+    columns:
+      - name: country
+        tests:
+          - not_null
+          - unique
+      - name: total_players
+        tests:
+          - not_null
