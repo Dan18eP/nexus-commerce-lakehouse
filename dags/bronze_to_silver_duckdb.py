@@ -28,7 +28,7 @@ with DAG(
     clean_silver = PythonOperator(
         task_id='transform_bronze_to_silver',
         python_callable=transform_bronze_to_silver_duckdb,
-        op_kwargs={'dataset_folder': 'football'}
+        op_kwargs={'dataset_folder': 'ecommerce'}
     )
 
     clean_silver

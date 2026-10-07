@@ -16,7 +16,7 @@ x-airflow-common: &airflow-common
     MINIO_ENDPOINT: ${MINIO_ENDPOINT:-minio:9000}
     MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
     MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-minioadmin}
-    S3_BUCKET: ${S3_BUCKET:-datalake}
+    S3_BUCKET: ${S3_BUCKET:-nexus-lakehouse}
   volumes:
     - ./dags:/opt/airflow/dags
     - ./src:/opt/airflow/src
@@ -65,8 +65,8 @@ services:
     entrypoint: >
       /bin/sh -c "
       /usr/bin/mc alias set myminio http://minio:9000 minioadmin minioadmin;
-      /usr/bin/mc mb --ignore-existing myminio/datalake;
-      /usr/bin/mc anonymous set download myminio/datalake;
+      /usr/bin/mc mb --ignore-existing myminio/nexus-lakehouse;
+      /usr/bin/mc anonymous set download myminio/nexus-lakehouse;
       exit 0;
       "
 

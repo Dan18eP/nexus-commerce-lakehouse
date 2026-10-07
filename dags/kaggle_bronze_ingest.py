@@ -27,9 +27,8 @@ with DAG(
 ) as dag:
 
     def ingest_task():
-        # Dataset de ejemplo por defecto o configurable
-        dataset = os.getenv("KAGGLE_DATASET", "davidcariboo/player-scores")
-        download_and_upload_kaggle_dataset(dataset_identifier=dataset, target_bronze_folder="football")
+        dataset = os.getenv("KAGGLE_DATASET", "olistbr/brazilian-ecommerce")
+        download_and_upload_kaggle_dataset(dataset_identifier=dataset, target_bronze_folder="ecommerce")
 
     ingest_bronze = PythonOperator(
         task_id='ingest_bronze_from_kaggle',
