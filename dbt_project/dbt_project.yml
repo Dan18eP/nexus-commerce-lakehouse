@@ -20,4 +20,4 @@ models:
     silver:
       +materialized: view
     gold:
-      +materialized: table
+      +materialized: external

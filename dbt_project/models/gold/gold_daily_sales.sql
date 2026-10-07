@@ -1,3 +1,8 @@
+{{ config(
+    materialized='external',
+    location='s3://nexus-lakehouse/gold/ecommerce/gold_daily_sales.parquet'
+) }}
+
 -- Modelo Gold: gold_daily_sales
 -- Agregacion ejecutiva de ventas diarias, ticket promedio y rendimiento logistico
 WITH orders_cte AS (

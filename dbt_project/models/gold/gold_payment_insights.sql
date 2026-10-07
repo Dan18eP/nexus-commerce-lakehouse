@@ -1,3 +1,8 @@
+{{ config(
+    materialized='external',
+    location='s3://nexus-lakehouse/gold/ecommerce/gold_payment_insights.parquet'
+) }}
+
 -- Modelo Gold: gold_payment_insights
 -- Distribucion de volumen transaccional y facturacion por metodo de pago
 SELECT 
