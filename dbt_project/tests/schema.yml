@@ -1,26 +1,42 @@
 version: 2
 
 models:
-  - name: players_clean
-    description: "Tabla silver limpia y filtrada de jugadores"
+  - name: silver_orders
+    description: "Tabla de ordenes estandarizada con timestamps validados"
     columns:
-      - name: player_id
-        tests:
-          - not_null
-      - name: age
-        tests:
-          - not_null
-      - name: market_value_in_eur
-        tests:
-          - not_null
-
-  - name: players_daily_stats
-    description: "Métricas agregadas por país para análisis de BI"
-    columns:
-      - name: country
+      - name: order_id
         tests:
           - not_null
           - unique
-      - name: total_players
+      - name: customer_id
         tests:
           - not_null
+
+  - name: silver_order_payments
+    description: "Detalle de transacciones de pago con validacion de monto positivo"
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: payment_value
+        tests:
+          - not_null
+
+  - name: gold_daily_sales
+    description: "Data Mart diario con metricas agregadas de ventas y SLA logistico"
+    columns:
+      - name: order_date
+        tests:
+          - not_null
+          - unique
+      - name: total_orders
+        tests:
+          - not_null
+
+  - name: gold_payment_insights
+    description: "Data Mart con metricas agregadas por tipo de medio de pago"
+    columns:
+      - name: payment_type
+        tests:
+          - not_null
+          - unique
