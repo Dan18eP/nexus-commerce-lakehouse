@@ -12,7 +12,7 @@ SET s3_url_style='path';
 -- Vista Gold: Rendimiento diario de ventas y tiempos logísticos
 CREATE OR REPLACE VIEW gold_daily_sales AS
 SELECT *
-FROM read_parquet('s3://nexus-lakehouse/gold/ecommerce/gold_daily_sales_performance.parquet');
+FROM read_parquet('s3://nexus-lakehouse/gold/ecommerce/gold_daily_sales.parquet');
 
 -- Vista Gold: Métricas financieras por canal de pago
 CREATE OR REPLACE VIEW gold_payment_insights AS
